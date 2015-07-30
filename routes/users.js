@@ -1,9 +1,11 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+router.get('/users', function(req, res, next) {
+  res.render('users', {
+    title: 'user',
+    introduction: '爱PPT爱吐槽，就来有弹幕·PPT资源共享平台~爱PPT爱吐槽，就来有弹幕·PPT资源共享平台~爱PPT爱吐槽，就来有弹幕·PPT资源共享平台~'
+  });
 });
 
 module.exports = router;
