@@ -1,9 +1,17 @@
-.myH3 {
-    margin-top: 30px;
-    margin-left: -80px;
+
+@media screen and (min-width:600px) {
+    .myH3 {
+        margin-top: 30px;
+        margin-left: -60px;
+    }
+}
+@media screen and (max-width:599px) {
+    .myH3 {
+    }
 }
 .myWord {
      margin-left: 5px;
+    font-size: 8pt;
  }
 .myWord_1 {
     margin-top: 5px;
