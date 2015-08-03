@@ -8,4 +8,21 @@ router.get('/users', function(req, res, next) {
   });
 });
 
+router.post('/users/info', function(req, res) {
+  // req.body
+
+  console.log(req.body);
+  console.log(typeof req.body);
+  console.log(req.body.name);
+  if (req.body.name == 'seal') {
+    res.json({
+      message: 'success'
+    });
+  } else {
+    res.json({
+      message: 'failure'
+    })
+  }
+
+});
 module.exports = router;

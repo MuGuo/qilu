@@ -34,7 +34,7 @@
 <!---头像--->
 <div class="banner">
     <div align="center">
-        <img src="images/portrait.jpg" alt="portrait" class="img-rounded myPortrait">
+        <img src="images/user/portrait.jpg" alt="portrait" class="img-rounded myPortrait">
     </div>
     <div class="container myCenter">
         <div class="myBox_2">
@@ -42,10 +42,110 @@
         </div>
         <div class="myBox_1">
             <div>
-                <a class="btn btn-info myBut_2" href="#" role="button">我的资料</a>
+                <button type="button" class="btn btn-info btn-lg myBut_2" data-toggle="modal" data-target="#myModal">
+                    我的资料
+                </button>
+                <!-- Modal -->
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel">我的资料</h4>
+                            </div>
+                            <div class="modal-body">
+                                <form id="userdata">
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <div class="form-horizontal">
+                                                <div class="form-group">
+                                                    <div class="col-md-3">
+                                                        <label for="name" class="control-label">昵称</label>
+                                                    </div>
+                                                    <div class="col-sm-9">
+                                                        <input type="email" class="form-control" placeholder="Amy">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-md-3">
+                                                         <label for="gender">性别</label>
+                                                    </div>
+                                                    <div class="col-md-9">
+                                                        <label class="radio-inline">
+                                                            <input type="radio" name="gender" id="gender" value="option1"> 男
+                                                        </label>
+                                                        <label class="radio-inline">
+                                                            <input type="radio" name="gender" id="gender" value="option2"> 女
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-md-3">
+                                                        <label for="meeting" class="control-label">出生日期</label>
+                                                    </div>
+                                                    <div class="col-md-9">
+                                                        <input class="form-control" id="meeting" type="date" value="2013-07-30"/>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-md-3">
+                                                        <label for="favorite" class="control-label">爱好</label>
+                                                    </div>
+                                                    <div class="col-md-9">
+                                                        <textarea class="form-control" rows="4" id="favorite" placeholder="Amy"></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <br><br>
+                                            <img src="images/user/4.jpg" class="img-responsive" alt="Responsive image">
+                                            <div class="col-md-2 myBox_5">
+                                                <a class="btn btn-info myBut_2 " href="#" role="button">上传头像</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="intro" class="control-label">个人介绍</label>
+                                        <textarea class="form-control" rows="6" id="intro" placeholder="i love PPT"></textarea>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                <button type="button" class="btn btn-primary" id="save">保存</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div>
-                <a class="btn btn-info myBut_1" href="#" role="button">上传PPT </a>
+                <button type="button" class="btn btn-info btn-lg myBut_1" data-toggle="modal" data-target="#myModa2">
+                    上传PPT
+                </button>
+                <!-- Modal -->
+                <div class="modal fade" id="myModa2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel">上传PPT</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="center_1">
+                                    <img src="images/user/5.jpg" class="img-responsive" alt="Responsive image">
+                                </div>
+                                <div class="col-md-2 myBox_5 center_2">
+                                    <a class="btn btn-info myBut_2 " href="#" role="button">上传PPT</a>
+                                </div>
+                                <br><br><br>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div>
@@ -55,7 +155,16 @@
 </div>
 <!---我喜欢的ppt--->
 <div class="container">
-    <h3 class="myH1">我喜欢的PPT</h3>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-2">
+                <h3 class="myH1">我喜欢的PPT</h3>
+            </div>
+            <div class="col-md-2 myBox_5">
+                <a class="btn btn-info myBut_2 " href="#" role="button">查看全部</a>
+            </div>
+        </div>
+    </div>
     <h3 class="myLine">----------------------------------------</h3>
     <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
         <!-- Indicators -->
@@ -68,13 +177,211 @@
         <!-- Wrapper for slides -->
         <div class="carousel-inner" role="listbox">
             <div class="item active">
-                <img src="images/1.jpg" alt="...">
-                <div class="carousel-caption">
+                <div class="container-fluid  myBox_3">
+                    <div class="row">
+                        <div class="col-xs-2">
+                            <div>
+                                <img src="images/user/4.jpg" class="img-responsive center-block" alt="ppt image">
+                            </div>
+                            <div class="myBox_4">
+                                <p class="text-center">我是ppt的主题</p>
+                            </div>
+                        </div>
+                        <div class="col-xs-2">
+                            <div>
+                                <img src="images/user/4.jpg" class="img-responsive center-block" alt="ppt image">
+                            </div>
+                            <div class="myBox_4">
+                                <p class="text-center">我是ppt的主题</p>
+                            </div>
+                        </div>
+                        <div class="col-xs-2">
+                            <div>
+                                <img src="images/user/4.jpg" class="img-responsive center-block" alt="ppt image">
+                            </div>
+                            <div class="myBox_4">
+                                <p class="text-center">我是ppt的主题</p>
+                            </div>
+                        </div>
+                        <div class="col-xs-2">
+                            <div>
+                                <img src="images/user/4.jpg" class="img-responsive center-block" alt="ppt image">
+                            </div>
+                            <div class="myBox_4">
+                                <p class="text-center">我是ppt的主题</p>
+                            </div>
+                        </div>
+                        <div class="col-xs-2">
+                            <div>
+                                <img src="images/user/4.jpg" class="img-responsive center-block" alt="ppt image">
+                            </div>
+                            <div class="myBox_4">
+                                <p class="text-center">我是ppt的主题</p>
+                            </div>
+                        </div>
+                        <div class="col-xs-2">
+                            <div>
+                                <img src="images/user/4.jpg" class="img-responsive center-block" alt="ppt image">
+                            </div>
+                            <div class="myBox_4">
+                                <p class="text-center">我是ppt的主题</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-2">
+                            <div>
+                                <img src="images/user/4.jpg" class="img-responsive center-block" alt="ppt image">
+                            </div>
+                            <div class="myBox_4">
+                                <p class="text-center">我是ppt的主题</p>
+                            </div>
+                        </div>
+                        <div class="col-xs-2">
+                            <div>
+                                <img src="images/user/4.jpg" class="img-responsive center-block" alt="ppt image">
+                            </div>
+                            <div class="myBox_4">
+                                <p class="text-center">我是ppt的主题</p>
+                            </div>
+                        </div>
+                        <div class="col-xs-2">
+                            <div>
+                                <img src="images/user/4.jpg" class="img-responsive center-block" alt="ppt image">
+                            </div>
+                            <div class="myBox_4">
+                                <p class="text-center">我是ppt的主题</p>
+                            </div>
+                        </div>
+                        <div class="col-xs-2">
+                            <div>
+                                <img src="images/user/4.jpg" class="img-responsive center-block" alt="ppt image">
+                            </div>
+                            <div class="myBox_4">
+                                <p class="text-center">我是ppt的主题</p>
+                            </div>
+                        </div>
+                        <div class="col-xs-2">
+                            <div>
+                                <img src="images/user/4.jpg" class="img-responsive center-block" alt="ppt image">
+                            </div>
+                            <div class="myBox_4">
+                                <p class="text-center">我是ppt的主题</p>
+                            </div>
+                        </div>
+                        <div class="col-xs-2">
+                            <div>
+                                <img src="images/user/4.jpg" class="img-responsive center-block" alt="ppt image">
+                            </div>
+                            <div class="myBox_4">
+                                <p class="text-center">我是ppt的主题</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="item">
-                <img src="images/2.jpg" alt="...">
-                <div class="carousel-caption">
+                <div class="container-fluid myBox_3">
+                    <div class="row">
+                        <div class="col-xs-2">
+                            <div>
+                                <img src="images/user/4.jpg" class="img-responsive center-block" alt="ppt image">
+                            </div>
+                            <div class="myBox_4">
+                                <p class="text-center">我是ppt的主题</p>
+                            </div>
+                        </div>
+                        <div class="col-xs-2">
+                            <div>
+                                <img src="images/user/4.jpg" class="img-responsive center-block" alt="ppt image">
+                            </div>
+                            <div class="myBox_4">
+                                <p class="text-center">我是ppt的主题</p>
+                            </div>
+                        </div>
+                        <div class="col-xs-2">
+                            <div>
+                                <img src="images/user/4.jpg" class="img-responsive center-block" alt="ppt image">
+                            </div>
+                            <div class="myBox_4">
+                                <p class="text-center">我是ppt的主题</p>
+                            </div>
+                        </div>
+                        <div class="col-xs-2">
+                            <div>
+                                <img src="images/user/4.jpg" class="img-responsive center-block" alt="ppt image">
+                            </div>
+                            <div class="myBox_4">
+                                <p class="text-center">我是ppt的主题</p>
+                            </div>
+                        </div>
+                        <div class="col-xs-2">
+                            <div>
+                                <img src="images/user/4.jpg" class="img-responsive center-block" alt="ppt image">
+                            </div>
+                            <div class="myBox_4">
+                                <p class="text-center">我是ppt的主题</p>
+                            </div>
+                        </div>
+                        <div class="col-xs-2">
+                            <div>
+                                <img src="images/user/4.jpg" class="img-responsive center-block" alt="ppt image">
+                            </div>
+                            <div class="myBox_4">
+                                <p class="text-center">我是ppt的主题</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-2">
+                            <div>
+                                <img src="images/user/4.jpg" class="img-responsive center-block" alt="ppt image">
+                            </div>
+                            <div class="myBox_4">
+                                <p class="text-center">我是ppt的主题</p>
+                            </div>
+                        </div>
+                        <div class="col-xs-2">
+                            <div>
+                                <img src="images/user/4.jpg" class="img-responsive center-block" alt="ppt image">
+                            </div>
+                            <div class="myBox_4">
+                                <p class="text-center">我是ppt的主题</p>
+                            </div>
+                        </div>
+                        <div class="col-xs-2">
+                            <div>
+                                <img src="images/user/4.jpg" class="img-responsive center-block" alt="ppt image">
+                            </div>
+                            <div class="myBox_4">
+                                <p class="text-center">我是ppt的主题</p>
+                            </div>
+                        </div>
+                        <div class="col-xs-2">
+                            <div>
+                                <img src="images/user/4.jpg" class="img-responsive center-block" alt="ppt image">
+                            </div>
+                            <div class="myBox_4">
+                                <p class="text-center">我是ppt的主题</p>
+                            </div>
+                        </div>
+                        <div class="col-xs-2">
+                            <div>
+                                <img src="images/user/4.jpg" class="img-responsive center-block" alt="ppt image">
+                            </div>
+                            <div class="myBox_4">
+                                <p class="text-center">我是ppt的主题</p>
+                            </div>
+                        </div>
+                        <div class="col-xs-2">
+                            <div>
+                                <img src="images/user/4.jpg" class="img-responsive center-block" alt="ppt image">
+                            </div>
+                            <div class="myBox_4">
+                                <p class="text-center">我是ppt的主题</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -91,36 +398,142 @@
     </div>
 </div>
 <div class="container">
-    <h3 class="myH1">我上传的PPT</h3>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-2">
+                <h3 class="myH1">我上传的PPT</h3>
+            </div>
+            <div class="col-md-2 myBox_5">
+                <a class="btn btn-info myBut_2 " href="#" role="button">查看全部</a>
+            </div>
+        </div>
+    </div>
     <h3 class="myLine">----------------------------------------</h3>
-    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+    <div id="carousel-example-generic2" class="carousel slide" data-ride="carousel">
         <!-- Indicators -->
         <ol class="carousel-indicators">
-            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+            <li data-target="#carousel-example-generic2" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel-example-generic2" data-slide-to="1"></li>
         </ol>
 
         <!-- Wrapper for slides -->
         <div class="carousel-inner" role="listbox">
             <div class="item active">
-                <img src="images/1.jpg" alt="...">
-                <div class="carousel-caption">
+                <div class="container-fluid  myBox_3">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <div>
+                                <img src="images/user/4.jpg" class="img-responsive center-block" alt="ppt image">
+                            </div>
+                            <div class="myBox_4">
+                                <p class="text-center">我是ppt的主题</p>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div>
+                                <img src="images/user/4.jpg" class="img-responsive center-block" alt="ppt image">
+                            </div>
+                            <div class="myBox_4">
+                                <p class="text-center">我是ppt的主题</p>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div>
+                                <img src="images/user/4.jpg" class="img-responsive center-block" alt="ppt image">
+                            </div>
+                            <div class="myBox_4">
+                                <p class="text-center">我是ppt的主题</p>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div>
+                                <img src="images/user/4.jpg" class="img-responsive center-block" alt="ppt image">
+                            </div>
+                            <div class="myBox_4">
+                                <p class="text-center">我是ppt的主题</p>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div>
+                                <img src="images/user/4.jpg" class="img-responsive center-block" alt="ppt image">
+                            </div>
+                            <div class="myBox_4">
+                                <p class="text-center">我是ppt的主题</p>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div>
+                                <img src="images/user/4.jpg" class="img-responsive center-block" alt="ppt image">
+                            </div>
+                            <div class="myBox_4">
+                                <p class="text-center">我是ppt的主题</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="item">
-                <img src="images/2.jpg" alt="...">
-                <div class="carousel-caption">
+                <div class="container-fluid myBox_3">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <div>
+                                <img src="images/user/4.jpg" class="img-responsive center-block" alt="ppt image">
+                            </div>
+                            <div class="myBox_4">
+                                <p class="text-center">我是ppt的主题</p>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div>
+                                <img src="images/user/4.jpg" class="img-responsive center-block" alt="ppt image">
+                            </div>
+                            <div class="myBox_4">
+                                <p class="text-center">我是ppt的主题</p>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div>
+                                <img src="images/user/4.jpg" class="img-responsive center-block" alt="ppt image">
+                            </div>
+                            <div class="myBox_4">
+                                <p class="text-center">我是ppt的主题</p>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div>
+                                <img src="images/user/4.jpg" class="img-responsive center-block" alt="ppt image">
+                            </div>
+                            <div class="myBox_4">
+                                <p class="text-center">我是ppt的主题</p>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div>
+                                <img src="images/user/4.jpg" class="img-responsive center-block" alt="ppt image">
+                            </div>
+                            <div class="myBox_4">
+                                <p class="text-center">我是ppt的主题</p>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div>
+                                <img src="images/user/4.jpg" class="img-responsive center-block" alt="ppt image">
+                            </div>
+                            <div class="myBox_4">
+                                <p class="text-center">我是ppt的主题</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
         <!-- Controls -->
-        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+        <a class="left carousel-control" href="#carousel-example-generic2" role="button" data-slide="prev">
             <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
             <span class="sr-only">Previous</span>
         </a>
-        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+        <a class="right carousel-control" href="#carousel-example-generic2" role="button" data-slide="next">
             <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
         </a>
@@ -139,6 +552,18 @@
 </div>
 <script src="bower_components/jquery/dist/jquery.js"></script>
 <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-
+<script>
+    $("#save").click(function() {
+        var name = $("#userdata").val();
+        $.post('/users/info', {name: name}, function(result) {
+           console.log(result);
+            if (result.message == 'success') {
+                $("#myModal").modal("hide");
+            } else {
+                alert('error');
+            }
+        });
+    });
+</script>
 </body>
 </html>
