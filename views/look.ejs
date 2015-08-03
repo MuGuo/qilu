@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
+    <style>
+        body {
+            padding-top: 60px;
+        }
+        div.slide {
+            background-color: #276805;
+            padding: 8px;
+        }
+
+        div.slide div.show {
+            height: 420px;
+            background-color: lawngreen;
+            margin-top: 20px;
+        }
+
+        div.slide div.toolbar {
+            padding-top: 8px;
+            padding-bottom: 3px;
+            font-size: 32px;
+        }
+
+        div.slide div.toolbar span.page {
+            padding-left: 20px;
+            padding-right: 20px;
+            background-color: limegreen;
+            line-height: 1;
+            position: relative;
+            top: -3px;
+        }
+
+        div.slide div.toolbar a:link,
+        div.slide div.toolbar a:visited {
+            color: yellow;
+            text-decoration: none;
+        }
+        div.slide div.toolbar a:hover {
+            color: #c6c600;
+            text-decoration: none;
+        }
+
+        div.slide div.toolbar a:active {
+            color: yellow;
+            text-decoration: none;
+        }
+
+        div.send {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            position: relative;
+            background-color: #276805;
+            height: 42px;
+            padding: 8px;
+        }
+
+        div.send div.message {
+            margin-right: 52px;
+        }
+
+        div.send div.message #send {
+            width: 100%;
+        }
+
+        div.send button {
+            position: absolute;
+            background-color: yellow;
+            right: 8px;
+            top: 8px;
+        }
+
+
+        div.comment {
+            padding-top: 20px;
+            padding-bottom: 20px;
+            background-color: #276805;
+        }
+
+        div.comment .media {
+            overflow: visible;
+        }
+        div.comment .media-left img {
+            margin-top: -8px;
+        }
+        div.comment .media-body {
+            position: relative;
+            padding: 12px;
+            background-color: yellow;
+            overflow: visible;
+            border-radius: 5px;
+        }
+        div.comment .media-body div.arrow {
+            position: absolute;
+            width: 0;
+            height: 0;
+            top: 10px;
+            left: -8px;
+            border-top: 8px solid transparent;
+            border-bottom: 8px solid transparent;
+            border-right: 8px solid yellow;
+        }
+
+        div.page-control {
+            margin-top: 20px;
+            font-size: 32px;
+        }
+
+        div.page-control a:link,
+        div.page-control a:visited {
+            color: yellow;
+            text-decoration: none;
+        }
+        div.page-control a:hover {
+            color: #c6c600;
+            text-decoration: none;
+        }
+
+        div.page-control a:active {
+            color: yellow;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-8">
+                <div class="slide">
+                    <div class="show">
+
+                    </div>
+                    <div class="toolbar">
+                        <a href="">
+                            <span class="glyphicon glyphicon-share"></span>
+                        </a>
+                        <a href="">
+                            <span class="glyphicon glyphicon-heart-empty"></span>
+                        </a>
+                        <a href="">
+                            <span class="glyphicon glyphicon-download-alt"></span>
+                        </a>
+                        <div class="pull-right">
+                            <a href="">
+                                <span class="glyphicon glyphicon-triangle-left"></span>
+                            </a>
+                            <span class="page">34</span>
+                            <a href="">
+                                <span class="glyphicon glyphicon-triangle-right"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="send">
+                    <div class="message">
+                        <input id="send">
+                    </div>
+                    <button>发送</button>
+                </div>
+            </div>
+            <div class="col-md-4 comment">
+                <div class="media">
+                    <div class="media-left">
+                        <a href="">
+                            <img src="images/head.jpg" width="64" height="64" alt="" class="img-circle"/>
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <div class="arrow"></div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur autem beatae, consequatur deleniti distinctio eveniet exercitationem impedit iste maiores molestias praesentium quas quia quod recusandae sed, suscipit ullam? Animi, voluptatem.</p>
+                    </div>
+                </div>
+                <div class="media">
+                    <div class="media-left">
+                        <a href="">
+                            <img src="images/head.jpg" width="64" height="64" alt="" class="img-circle"/>
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <div class="arrow"></div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt, voluptate.</p>
+                    </div>
+                </div>
+                <div class="media">
+                    <div class="media-left">
+                        <a href="">
+                            <img src="images/head.jpg" width="64" height="64" alt="" class="img-circle"/>
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <div class="arrow"></div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt, voluptate.</p>
+                    </div>
+                </div>
+                <div class="media">
+                    <div class="media-left">
+                        <a href="">
+                            <img src="images/head.jpg" width="64" height="64" alt="" class="img-circle"/>
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <div class="arrow"></div>
+                        <p>Lorem ipsum dolor sit amet,  voluptate.</p>
+                    </div>
+                </div>
+                <div class="page-control text-center">
+                    <a href="">
+                        <span class="glyphicon glyphicon-triangle-left"></span>
+                    </a>
+                    <a href="">
+                        <span class="glyphicon glyphicon-triangle-right"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -11,4 +11,8 @@ router.get('/total', function(req, res, next) {
   res.render('total', { title: 'Express' });
 });
 
+router.get('/look', function(req, res, next) {
+  res.render('look', { title: 'Express' });
+});
+
 module.exports = router;

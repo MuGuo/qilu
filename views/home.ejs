@@ -27,7 +27,7 @@
         <nav id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right font_1">
                 <li><a  id="land" href="" data-toggle="modal" data-target="#myModal">登陆</a></li>
-                <li><a  id="register" href="">注册</a></li>
+                <li><a  id="land" href="" data-toggle="modal" data-target="#myModal2">注册</a></li>
             </ul>
             <form class="navbar-form navbar-right">
                 <input type="text" placeholder="Search something" class="form-control">
@@ -36,13 +36,13 @@
         </nav>
     </div>
 </nav>
-<!-- Modal -->
+<!-- Modal for sign in -->
 <div class="modal fade myBox1" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">登陆</h4>
+                <h4 class="modal-title" id="myModalLabel" style="margin-left: 30px">登陆</h4>
             </div>
             <div class="modal-body myBox2">
                 <form id="userdata">
@@ -54,15 +54,15 @@
                                         <label for="name" class="control-label myBox3">用户名</label>
                                     </div>
                                     <div class="col-sm-9">
-                                        <input type="email" class="form-control" placeholder="昵称或者邮箱">
+                                        <input id="name" type="email" class="form-control" placeholder="昵称或者邮箱">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="col-md-3">
-                                        <label for="name" class="control-label myBox3">密码</label>
+                                        <label for="password" class="control-label myBox3">密码</label>
                                     </div>
                                     <div class="col-sm-9">
-                                        <input type="email" class="form-control">
+                                        <input id="password" type="password" class="form-control">
                                     </div>
                                 </div>
                             </div>
@@ -71,8 +71,57 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                <button type="button" class="btn btn-primary" id="land-save">保存</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" id="land-save">确认</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal for register -->
+<div class="modal fade myBox1" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel" style="margin-left: 30px">注册</h4>
+            </div>
+            <div class="modal-body myBox2">
+                <form id="userdata">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-horizontal">
+                                <div class="form-group">
+                                    <div class="col-md-3">
+                                        <label for="email" class="control-label myBox3">邮箱</label>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <input id="email" type="email" class="form-control" placeholder="邮箱">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-3">
+                                        <label for="password1" class="control-label myBox3">密码</label>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <input id="password1" type="password" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-3">
+                                        <label for="password2" class="control-label">再次输入密码</label>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <input id="password2" type="password" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" id="register-save">确认</button>
             </div>
         </div>
     </div>
@@ -106,19 +155,17 @@
 <!--热门-->
 <div>
     <div class="container">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-xs-12 col-md-4">
-                    <h3>
-                        <span>
-                            <img src="images/home/9.png"
-                        </span>
-                        <span class="myH1">热门PPT推荐</span>
-                    </h3>
-                </div>
-                <div class="col-xs-12 col-md-2">
-                    <h4 class="myH1 myH3 myH31">发现你的兴趣</h4>
-                </div>
+        <div class="row">
+            <div class="col-xs-12 col-md-4">
+                <h3>
+                    <span>
+                        <img src="images/home/9.png"
+                    </span>
+                    <span class="myH1">热门PPT推荐</span>
+                </h3>
+            </div>
+            <div class="col-xs-12 col-md-2">
+                <h4 class="myH1 myH3 myH31">发现你的兴趣</h4>
             </div>
         </div>
         <div id="carousel-example-generic2" class="carousel slide" data-ride="carousel">
@@ -131,6 +178,60 @@
             <!-- Wrapper for slides -->
             <div class="carousel-inner" role="listbox">
                 <div class="item active">
+                    <div class="container-fluid  myBox_3">
+                        <div class="row">
+                            <div class="col-xs-4 col-md-2">
+                                <div>
+                                    <img src="images/user/4.jpg" class="img-responsive center-block" alt="ppt image">
+                                </div>
+                                <div class="myBox_4">
+                                    <p class="text-center">我是ppt的主题</p>
+                                </div>
+                            </div>
+                            <div class="col-xs-4 col-md-2">
+                                <div>
+                                    <img src="images/user/4.jpg" class="img-responsive center-block" alt="ppt image">
+                                </div>
+                                <div class="myBox_4">
+                                    <p class="text-center">我是ppt的主题</p>
+                                </div>
+                            </div>
+                            <div class="col-xs-4 col-md-2">
+                                <div>
+                                    <img src="images/user/4.jpg" class="img-responsive center-block" alt="ppt image">
+                                </div>
+                                <div class="myBox_4">
+                                    <p class="text-center">我是ppt的主题</p>
+                                </div>
+                            </div>
+                            <div class="col-xs-4 col-md-2">
+                                <div>
+                                    <img src="images/user/4.jpg" class="img-responsive center-block" alt="ppt image">
+                                </div>
+                                <div class="myBox_4">
+                                    <p class="text-center">我是ppt的主题</p>
+                                </div>
+                            </div>
+                            <div class="col-xs-4 col-md-2">
+                                <div>
+                                    <img src="images/user/4.jpg" class="img-responsive center-block" alt="ppt image">
+                                </div>
+                                <div class="myBox_4">
+                                    <p class="text-center">我是ppt的主题</p>
+                                </div>
+                            </div>
+                            <div class="col-xs-4 col-md-2">
+                                <div>
+                                    <img src="images/user/4.jpg" class="img-responsive center-block" alt="ppt image">
+                                </div>
+                                <div class="myBox_4">
+                                    <p class="text-center">我是ppt的主题</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
                     <div class="container-fluid  myBox_3">
                         <div class="row">
                             <div class="col-xs-4 col-md-2">
@@ -198,9 +299,8 @@
     </div>
 </div>
 <!---分类--->
-<div class="container banner banner2">
-    <div class="container">
-        <div class="container-fluid">
+
+        <div class="container" style="background-color: lightskyblue; margin-top: 40px;">
             <div class="row">
                 <div class="col-xs-12 col-md-3">
                     <h3>
@@ -250,17 +350,99 @@
                 <div class="col-xs-0 col-md-1"></div>
             </div>
             <br>
+            </div>
+<!--分类1-->
+<div class="container mybox5">
+    <div class="row">
+        <div class="col-md-4 col-xs-12">
+            <div class="row mybox4 container mybox6">
+                <div class="row">
+                    <div class="col-md-6 col-xs-6 text-center">
+                        <p class="myfont1" style="margin-top: 20px">大场景</p>
+                    </div>
+                    <div class="col-md-6 col-xs-6"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-xs-6"></div>
+                    <div class="col-md-6 col-xs-6 text-center">
+                        <p class="myfont2" style="margin-bottom: 15px">演讲、发布会<br>毕业、慈善</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row mybox7">
+                <div class="col-md-6 col-xs-6">
+                    <div>
+                        <img src="images/home/ppt.jpg" class="img-responsive center-block" alt="ppt image">
+                    </div>
+                    <div class="myBox_4">
+                        <p class="text-center">我是ppt的主题</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xs-6">
+                    <div>
+                        <img src="images/home/ppt.jpg" class="img-responsive center-block" alt="ppt image">
+                    </div>
+                    <div class="myBox_4">
+                        <p class="text-center">我是ppt的主题</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-xs-12">
+            <div>
+                <img src="images/home/ppt1.jpg" class="img-responsive center-block" alt="ppt image">
+            </div>
+            <div class="myBox_4">
+                <p class="text-center">我是ppt的主题</p>
+            </div>
+        </div>
+        <div class="col-md-4 col-xs-12">
+            <div class="row">
+                <div class="col-md-6 col-xs-6">
+                    <div>
+                        <img src="images/home/ppt1.jpg" class="img-responsive center-block" alt="ppt image">
+                    </div>
+                    <div class="myBox_4">
+                        <p class="text-center">我是ppt的主题</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xs-6">
+                    <div>
+                        <img src="images/home/ppt1.jpg" class="img-responsive center-block" alt="ppt image">
+                    </div>
+                    <div class="myBox_4">
+                        <p class="text-center">我是ppt的主题</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-xs-6">
+                    <div>
+                        <img src="images/home/ppt1.jpg" class="img-responsive center-block" alt="ppt image">
+                    </div>
+                    <div class="myBox_4">
+                        <p class="text-center">我是ppt的主题</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xs-6">
+                    <div>
+                        <img src="images/home/ppt1.jpg" class="img-responsive center-block" alt="ppt image">
+                    </div>
+                    <div class="myBox_4">
+                        <p class="text-center">我是ppt的主题</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</div>
-<!--分类1-->
 
 
 
 
 
-<script src="bower_components/jquery/dist/jquery.js"></script>
-<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-<script src="javascripts/myHome.js"></script>
+
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="javascripts/myHome.js"></script>
 </body>
 </html>

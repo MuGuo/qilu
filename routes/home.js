@@ -9,13 +9,10 @@ router.get('/', function(req, res, next) {
     res.render('home', { title: 'Express' });
 });
 
-router.post('/users/info', function(req, res) {
-    // req.body
-
-    console.log(req.body);
-    console.log(typeof req.body);
+router.post('/land', function(req, res) {
     console.log(req.body.name);
-    if (req.body.name == 'seal') {
+    console.log(req.body.password);
+    if (req.body.name == 'amy') {
         res.json({
             message: 'success'
         });
@@ -24,6 +21,19 @@ router.post('/users/info', function(req, res) {
             message: 'failure'
         })
     }
+});
 
+router.post('/register', function(req, res) {
+    console.log(req.body.email);
+    console.log(req.body.password);
+    if (req.body.email != 'amy') {
+        res.json({
+            message: 'success'
+        });
+    } else {
+        res.json({
+            message: 'failure'
+        })
+    }
 });
 module.exports = router;
