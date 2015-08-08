@@ -136,7 +136,14 @@
                                     <img src="images/user/5.jpg" class="img-responsive" alt="Responsive image">
                                 </div>
                                 <div class="col-md-2 myBox_5 center_2">
-                                    <a class="btn btn-info myBut_2 " href="#" role="button">上传PPT</a>
+                                    <!--<a id="ppt-upload" class="btn btn-info myBut_2 " href="#" role="button">上传PPT</a>-->
+                                    <span class="btn btn-success fileinput-button">
+                                        <i class="glyphicon glyphicon-plus"></i>
+                                        <span>选择文件</span>
+                                        <!-- The file input field used as target for the file upload widget -->
+                                        <input id="ppt-upload" type="file" name="file">
+                                    </span>
+                                    <!--<input id="ppt-upload" type="file" class="btn btn-info myBut_2" name="files[]" multiple>-->
                                 </div>
                                 <br><br><br>
                             </div>
@@ -552,6 +559,9 @@
 </div>
 <script src="bower_components/jquery/dist/jquery.js"></script>
 <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="javascripts/jquery.ui.widget.js"></script>
+<script src="javascripts/jquery.iframe-transport.js"></script>
+<script src="javascripts/jquery.fileupload.js"></script>
 <script>
     $("#save").click(function() {
         var name = $("#userdata").val();
@@ -561,6 +571,30 @@
                 $("#myModal").modal("hide");
             } else {
                 alert('error');
+            }
+        });
+    });
+
+    $(function () {
+        'use strict';
+        // Change this to the location of your server-side upload handler:
+        var url = '/upload';
+        $('#ppt-upload').fileupload({
+            url: url,
+            dataType: 'json',
+            done: function (e, data) {
+//                $.each(data.result.files, function (index, file) {
+//                    $('<p/>').text(file.name).appendTo('#files');
+//                });
+                alert('success');
+                console.log(data.result);
+            },
+            progressall: function (e, data) {
+//                var progress = parseInt(data.loaded / data.total * 100, 10);
+//                $('#progress .progress-bar').css(
+//                        'width',
+//                        progress + '%'
+//                );
             }
         });
     });
