@@ -15,6 +15,8 @@ router.use(function(req, res, next){
   if (req.cookies.name) {
     res.locals.logged = true;
     res.locals.name = req.cookies.name;
+  } else {
+    res.locals.logged = false;
   }
   next();
 });
