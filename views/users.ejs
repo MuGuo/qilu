@@ -133,21 +133,17 @@
     </div>
 </div>
 <!---头像--->
-<div class="banner">
+<div class="banner" id="v-info">
     <div align="center">
         <img src="images/user/amy.jpg" alt="portrait" class="img-rounded myPortrait">
     </div>
     <div class="text-center">
-        <p>hello</p>
-        <p>hello</p>
-        <p>hello</p>
-        <p>hello</p>
-        <p>hello</p>
-        <p>hello</p>
+        <p><span>{{name}}</span> <span>{{gender}}</span> <span>{{date}}</span></p>
+        <p>{{hobby}}</p>
     </div>
     <div class="container myCenter">
         <div class="myBox_2">
-            <p class="text-center introduce"><%= introduction %></p>
+            <p class="text-center introduce">{{introduction}}</p>
         </div>
         <div class="myBox_1">
             <div>
@@ -172,7 +168,7 @@
                                                         <label for="name" class="control-label">昵称</label>
                                                     </div>
                                                     <div class="col-sm-9">
-                                                        <input type="email" class="form-control" placeholder="Amy">
+                                                        <input type="email" class="form-control" placeholder="Amy" v-model="name">
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
@@ -181,10 +177,10 @@
                                                     </div>
                                                     <div class="col-md-9">
                                                         <label class="radio-inline">
-                                                            <input type="radio" name="gender" id="gender" value="option1"> 男
+                                                            <input type="radio" name="gender" id="gender" value="男" v-model="gender"> 男
                                                         </label>
                                                         <label class="radio-inline">
-                                                            <input type="radio" name="gender" id="gender" value="option2"> 女
+                                                            <input type="radio" name="gender" id="gender" value="女" v-model="gender"> 女
                                                         </label>
                                                     </div>
                                                 </div>
@@ -193,7 +189,7 @@
                                                         <label for="meeting" class="control-label">出生日期</label>
                                                     </div>
                                                     <div class="col-md-9">
-                                                        <input class="form-control" id="meeting" type="date" value="2013-07-30"/>
+                                                        <input class="form-control" id="meeting" type="date" value="2013-07-30" v-model="date"/>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
@@ -201,7 +197,7 @@
                                                         <label for="favorite" class="control-label">爱好</label>
                                                     </div>
                                                     <div class="col-md-9">
-                                                        <textarea class="form-control" rows="4" id="favorite" placeholder="Amy"></textarea>
+                                                        <textarea class="form-control" rows="4" id="favorite" placeholder="Amy" v-model="hobby"></textarea>
                                                     </div>
                                                 </div>
                                             </div>
@@ -216,13 +212,13 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="intro" class="control-label">个人介绍</label>
-                                        <textarea class="form-control" rows="6" id="intro" placeholder="i love PPT"></textarea>
+                                        <textarea class="form-control" rows="6" id="intro" placeholder="i love PPT" v-model="introduction"></textarea>
                                     </div>
                                 </form>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                                <button type="button" class="btn btn-primary" id="save">保存</button>
+                                <button type="button" class="btn btn-primary" v-on="click: save">保存</button>
                             </div>
                         </div>
                     </div>
@@ -671,43 +667,7 @@
 <script src="javascripts/jquery.ui.widget.js"></script>
 <script src="javascripts/jquery.iframe-transport.js"></script>
 <script src="javascripts/jquery.fileupload.js"></script>
-<script>
-    $("#save").click(function() {
-        var name = $("#userdata").val();
-        $.post('/users/info', {name: name}, function(result) {
-           console.log(result);
-            if (result.message == 'success') {
-                $("#myModal").modal("hide");
-            } else {
-                alert('error');
-            }
-        });
-    });
-
-    $(function () {
-        'use strict';
-        // Change this to the location of your server-side upload handler:
-        var url = '/upload';
-        $('#ppt-upload').fileupload({
-            url: url,
-            dataType: 'json',
-            done: function (e, data) {
-//                $.each(data.result.files, function (index, file) {
-//                    $('<p/>').text(file.name).appendTo('#files');
-//                });
-                alert('success');
-                $('#myModa2').modal('hide');
-                console.log(data.result);
-            },
-            progressall: function (e, data) {
-//                var progress = parseInt(data.loaded / data.total * 100, 10);
-//                $('#progress .progress-bar').css(
-//                        'width',
-//                        progress + '%'
-//                );
-            }
-        });
-    });
-</script>
+<script src="bower_components/vue/dist/vue.min.js"></script>
+<script src="javascripts/users.js"></script>
 </body>
 </html>
