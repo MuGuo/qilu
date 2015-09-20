@@ -10,14 +10,30 @@ var AVATAR_UPLOAD_FOLDER = '/ppt/';
 var num = 0;    //ÎÄ¼þid
 var check = 1;
 
+
+router.use(function(req, res, next){
+  if (req.cookies.name) {
+    res.locals.logged = true;
+    res.locals.name = req.cookies.name;
+  }
+  next();
+});
+
 router.use(users);
 router.use(home);
 
 /* GET total page. */
 router.get('/total', function(req, res, next) {
-
-  console.log(req.query);
-  res.render('total', { title: 'Express' });
+  console.log(req.cookies)
+  var logged = false;
+  var name = "";
+  console.log(req.cookies);
+  if (req.cookies.name && req.cookies.name != "") {
+    logged = true;
+    name = req.cookies.name;
+  }
+  res.render('total', { title: 'Express',logged: logged, name: name });
+  //res.render('total', { title: 'Express'});
 });
 
 router.get('/look:num', function(req, res, next) {

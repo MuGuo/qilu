@@ -8,11 +8,11 @@ $("#land-save").click(function() {
     console.log(password);
     $.post('/land', {name: name,password: password}, function(result) {
         console.log(result);
-        if (result.message == 'success') {
-            $("#myModal").modal("hide");
-        } else {
+        $("#myModal").modal("hide");
+        if (result.message == 'failure') {
             alert('用户名或密码错误');
         }
+        location.href = location.href;
     });
 });
 
@@ -23,14 +23,19 @@ $("#register-save").click(function() {
     if(password1 == password2) {
         $.post('/register', {email:email,password: password1}, function(result) {
             console.log(result);
-            if (result.message == 'success') {
-                alert('注册成功');
-            } else {
+            $("#myModal2").modal("hide");
+            if (result.message == 'failure') {
                 alert('邮箱被注册过了');
+            } else {
+                alert('注册成功');
+                // 只有注册成功才刷新页面
+                location.href = location.href;
             }
+
         });
     }
     else {
         alert('两次输入的密码不同');
     }
+
 });

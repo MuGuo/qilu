@@ -8,30 +8,40 @@ var router = express.Router();
 
 var mysql      = require('mysql');
 var connection = mysql.createConnection({
-    host     : '127.0.0.1',
-    user     : 'root',
-    password : '123456',
+    host     : '211.87.226.168',
+    user     : 'qilu',
+    password : '..xiao',
     database : 'qilu'
 });
 
 connection.connect();
 
-
 router.get('/', function(req, res, next) {
-    res.render('home', { title: 'Express' });
+    console.log(req.cookies)
+    var logged = false;
+    var name = "";
+    console.log(req.cookies);
+    if (req.cookies.name && req.cookies.name != "") {
+        logged = true;
+        name = req.cookies.name;
+    }
+    res.render('home', { title: 'Express',logged: logged, name: name });
 });
 
 router.post('/land', function(req, res) {
     console.log(req.body.name);
     console.log(req.body.password);
+    var name = req.body.name;
 
     connection.query('SELECT * from `user` where email = ?', [req.body.name], function(err, rows) {
         // connected! (unless `err` is set)
         console.log(err);
         if (rows.length > 0 && rows[0].password == req.body.password) {
-            res.json({
-                message: 'success'
-            });
+            res.setHeader('Set-Cookie', "name=" + name);
+            res.redirect('/');
+            //res.json({
+                //message: 'failure'
+            //})
         } else {
             res.json({
                 message: 'failure'
@@ -43,6 +53,7 @@ router.post('/land', function(req, res) {
 router.post('/register', function(req, res) {
     console.log(req.body.email);
     console.log(req.body.password);
+    var name = req.body.email;
     connection.query('SELECT * from `user` where email = ?', [req.body.email], function(err, rows) {
         // connected! (unless `err` is set)
         console.log(rows);
@@ -54,9 +65,11 @@ router.post('/register', function(req, res) {
             connection.query('insert into user(`email`,`password`) values(?,?)', [req.body.email,req.body.password], function(err, rows) {
                 console.log(rows);
             });
-            res.json({
-                message: 'success'
-            });
+            res.setHeader('Set-Cookie', "name=" + name);
+            res.redirect('/');
+            //res.json({
+            //    message: 'success'
+            //});
         }
     });
 });

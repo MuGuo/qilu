@@ -7,6 +7,10 @@
     <link rel="stylesheet" href="stylesheets/user.css">
     <link rel="stylesheet" href="stylesheets/total.css">
     <link rel="stylesheet" href="stylesheets/home.css">
+
+    <!--<script src="javascripts/look.js"></script>-->
+    <!--jquery.danmu.js (//github.com/chiruom/danmu/) - Licensed under the MIT license-->
+
     <style>
         div.slide {
             background-color: lightskyblue;
@@ -142,8 +146,19 @@
         </div>
         <nav id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right font_1">
-                <li><a  id="land" href="" data-toggle="modal" data-target="#myModal">登陆</a></li>
-                <li><a  id="land" href="" data-toggle="modal" data-target="#myModal2">注册</a></li>
+                <% if (!logged) { %>
+                <li><a  id="land" href="" data-toggle="modal" data-target="#myModal">登录</a></li>
+                <li><a  id="register" href="" data-toggle="modal" data-target="#myModal2">注册</a></li>
+                <% } else { %>
+                <li><a href="" id="logout"><%=name %></a></li>
+                <li><a href="" onclick="logout()" id="logout">注销</a></li>
+                <% } %>
+                <script>
+                    function logout() {
+                        document.cookie = "name=";
+                        location.href = location.href;
+                    }
+                </script>
             </ul>
             <form class="navbar-form navbar-right">
                 <input type="text" placeholder="Search something" class="form-control">
@@ -247,9 +262,12 @@
         <div class="row">
             <div class="col-md-8">
                 <div class="slide">
-                    <div class="show" style="background-color: black">
-                        <div style="max-width: 600px;margin:0 auto">
-                            <canvas id="the-canvas"></canvas>
+                    <div id="danmuarea">
+                        <div id="danmu" style="margin-top: 50px"></div>
+                        <div class="show" style="background-color: black">
+                            <div style="max-width: 600px;margin:0 auto">
+                                <canvas id="the-canvas"></canvas>
+                            </div>
                         </div>
                     </div>
                     <div class="toolbar">
@@ -266,19 +284,64 @@
                             <a href="" id="prev">
                                 <span class="glyphicon glyphicon-triangle-left"></span>
                             </a>
-                            <span class="page"><span id="page_num"></span> / <span id="page_count"></span></span>
+                            <span class="page"><span id="page_num" style="font-size: 20px"></span> / <span id="page_count" style="font-size: 20px"></span></span>
                             <a href="" id="next">
                                 <span class="glyphicon glyphicon-triangle-right"></span>
                             </a>
                         </div>
                     </div>
-                </div>
-
-                <div class="send">
-                    <div class="message">
-                        <input id="send">
+                    <div class="ctr" >
+                        <div class="row">
+                            <div class="col-md-2">
+                                <button class="btn btn-primary" id="start" onclick="resumer() ">弹幕开始/继续</button>
+                            </div>
+                            <div class="col-md-2">
+                                <button class="btn btn-primary " onclick="pauser()" style="margin-left: 15px">弹幕暂停</button>
+                            </div>
+                            <div class="col-md-2">
+                                <button class="btn btn-primary"  onclick="changehide()">弹幕显示/关闭</button>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="col-md-5">
+                                    <p>弹幕透明度:</p>
+                                </div>
+                                <div class="col-md-7">
+                                    <input type="range" name="op" id="op" onchange="op()" value="100">
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <select  name="color" id="color" class="form-control">
+                                    <option value="white" selected="selected">白色</option>
+                                    <option value="red">红色</option>
+                                    <option value="green">绿色</option>
+                                    <option value="blue">蓝色</option>
+                                    <option value="yellow">黄色</option>
+                                </select>
+                            </div>
+                            <div class="col-md-2">
+                                <select name="size" id="text_size" class="form-control">
+                                    <option value="1" selected="selected">大文字</option>
+                                    <option value="0">小文字</option>
+                                </select>
+                            </div>
+                            <div class="col-md-2">
+                                <select name="position" id="position" class="form-control">
+                                    <option value="0" selected="selected">滚动</option>
+                                    <option value="1">顶端</option>
+                                    <option value="2">底端</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <input type="textarea" id="text"class="form-control"/>
+                            </div>
+                            <div class="col-md-1">
+                                <button id="send" type="button" class="btn btn-primary">发送</button>
+                            </div>
+                        </div>
                     </div>
-                    <button style="color: white">发送</button>
                 </div>
             </div>
             <div class="col-md-4 comment">
@@ -337,11 +400,11 @@
             </div>
         </div>
     </div>
-<button id="prev">Previous</button>
-<button id="next">Next</button>
-
-<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="javascripts/jquery-1.11.1.min.js"></script>
+<script src="javascripts/jquery.danmu.js"></script>
+<script src="javascripts/look.js"></script>
 <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+
 <script src="javascripts/myHome.js"></script>
 
 <!-- for legacy browsers add compatibility.js -->

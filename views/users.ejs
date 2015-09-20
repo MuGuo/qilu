@@ -22,19 +22,120 @@
             </div>
         </div>
         <ul class="nav navbar-nav navbar-right font_1">
-            <li><a  id="land" href="">登陆</a></li>
-            <li><a  id="register" href="">注册</a></li>
+            <% if (!logged) { %>
+            <li><a  id="land" href="" data-toggle="modal" data-target="#myModal">登录</a></li>
+            <li><a  id="register" href="" data-toggle="modal" data-target="#myModal2">注册</a></li>
+            <% } else { %>
+            <li><a href="" id="logout"><%=name %></a></li>
+            <li><a href="" onclick="logout()" id="logout">注销</a></li>
+            <% } %>
+            <script>
+                function logout() {
+                    document.cookie = "name=";
+                    location.href = location.href;
+                }
+            </script>
         </ul>
-        <form class="navbar-form navbar-right">
-            <input type="text" placeholder="Search something" class="form-control">
-            <button type="submit" class="btn btn-success">搜索</button>
-        </form>
+        <!--<form class="navbar-form navbar-right">-->
+            <!--<input type="text" placeholder="Search something" class="form-control">-->
+            <!--<button type="submit" class="btn btn-success">搜索</button>-->
+        <!--</form>-->
     </div>
 </nav>
+<!-- Modal for sign in -->
+<div class="modal fade myBox1" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel" style="margin-left: 30px">登录</h4>
+            </div>
+            <div class="modal-body myBox2">
+                <form id="userdata">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-horizontal">
+                                <div class="form-group">
+                                    <div class="col-md-3">
+                                        <label for="name" class="control-label myBox3">用户名</label>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <input id="name" type="email" class="form-control" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-3">
+                                        <label for="password" class="control-label myBox3">密码</label>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <input id="password" type="password" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" id="land-save">确认</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal for register -->
+<div class="modal fade myBox1" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel" style="margin-left: 30px">注册</h4>
+            </div>
+            <div class="modal-body myBox2">
+                <form id="userdata">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-horizontal">
+                                <div class="form-group">
+                                    <div class="col-md-3">
+                                        <label for="email" class="control-label myBox3">用户名</label>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <input id="email" type="email" class="form-control" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-3">
+                                        <label for="password1" class="control-label myBox3">密码</label>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <input id="password1" type="password" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-3">
+                                        <label for="password2" class="control-label">再次输入密码</label>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <input id="password2" type="password" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" id="register-save">确认</button>
+            </div>
+        </div>
+    </div>
+</div>
 <!---头像--->
 <div class="banner">
     <div align="center">
-        <img src="images/user/portrait.jpg" alt="portrait" class="img-rounded myPortrait">
+        <img src="images/user/amy.jpg" alt="portrait" class="img-rounded myPortrait">
     </div>
     <div class="container myCenter">
         <div class="myBox_2">
@@ -42,11 +143,11 @@
         </div>
         <div class="myBox_1">
             <div>
-                <button type="button" class="btn btn-info btn-lg myBut_2" data-toggle="modal" data-target="#myModal">
+                <button type="button" class="btn btn-info btn-lg myBut_2" data-toggle="modal" data-target="#myModal3">
                     我的资料
                 </button>
                 <!-- Modal -->
-                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -188,204 +289,204 @@
                     <div class="row">
                         <div class="col-xs-2">
                             <div>
-                                <img src="images/user/4.jpg" class="img-responsive center-block" alt="ppt image">
+                                <img src="images/total/2/1.png" class="img-responsive center-block" alt="ppt image">
                             </div>
                             <div class="myBox_4">
-                                <p class="text-center">我是ppt的主题</p>
+                                <p class="text-center">机器人的历史</p>
                             </div>
                         </div>
                         <div class="col-xs-2">
                             <div>
-                                <img src="images/user/4.jpg" class="img-responsive center-block" alt="ppt image">
+                                <img src="images/total/2/2.jpg" class="img-responsive center-block" alt="ppt image">
                             </div>
                             <div class="myBox_4">
-                                <p class="text-center">我是ppt的主题</p>
+                                <p class="text-center">化学医疗</p>
                             </div>
                         </div>
                         <div class="col-xs-2">
                             <div>
-                                <img src="images/user/4.jpg" class="img-responsive center-block" alt="ppt image">
+                                <img src="images/total/2/3.jpg" class="img-responsive center-block" alt="ppt image">
                             </div>
                             <div class="myBox_4">
-                                <p class="text-center">我是ppt的主题</p>
+                                <p class="text-center">微积分应用</p>
                             </div>
                         </div>
                         <div class="col-xs-2">
                             <div>
-                                <img src="images/user/4.jpg" class="img-responsive center-block" alt="ppt image">
+                                <img src="images/total/2/4.png" class="img-responsive center-block" alt="ppt image">
                             </div>
                             <div class="myBox_4">
-                                <p class="text-center">我是ppt的主题</p>
+                                <p class="text-center">中国工艺美术史</p>
                             </div>
                         </div>
                         <div class="col-xs-2">
                             <div>
-                                <img src="images/user/4.jpg" class="img-responsive center-block" alt="ppt image">
+                                <img src="images/total/2/5.jpg" class="img-responsive center-block" alt="ppt image">
                             </div>
                             <div class="myBox_4">
-                                <p class="text-center">我是ppt的主题</p>
+                                <p class="text-center">甲骨文的演化</p>
                             </div>
                         </div>
                         <div class="col-xs-2">
                             <div>
-                                <img src="images/user/4.jpg" class="img-responsive center-block" alt="ppt image">
+                                <img src="images/total/2/6.jpg" class="img-responsive center-block" alt="ppt image">
                             </div>
                             <div class="myBox_4">
-                                <p class="text-center">我是ppt的主题</p>
+                                <p class="text-center">生物科技</p>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-xs-2">
                             <div>
-                                <img src="images/user/4.jpg" class="img-responsive center-block" alt="ppt image">
+                                <img src="images/ppt/7.jpg" class="img-responsive center-block" alt="ppt image">
                             </div>
                             <div class="myBox_4">
-                                <p class="text-center">我是ppt的主题</p>
+                                <p class="text-center">小米2手机发布</p>
                             </div>
                         </div>
                         <div class="col-xs-2">
                             <div>
-                                <img src="images/user/4.jpg" class="img-responsive center-block" alt="ppt image">
+                                <img src="images/total/2/8.jpg" class="img-responsive center-block" alt="ppt image">
                             </div>
                             <div class="myBox_4">
-                                <p class="text-center">我是ppt的主题</p>
+                                <p class="text-center">概率论与数理统计</p>
                             </div>
                         </div>
                         <div class="col-xs-2">
                             <div>
-                                <img src="images/user/4.jpg" class="img-responsive center-block" alt="ppt image">
+                                <img src="images/total/2/9.jpg" class="img-responsive center-block" alt="ppt image">
                             </div>
                             <div class="myBox_4">
-                                <p class="text-center">我是ppt的主题</p>
+                                <p class="text-center">社交网络研究</p>
                             </div>
                         </div>
                         <div class="col-xs-2">
                             <div>
-                                <img src="images/user/4.jpg" class="img-responsive center-block" alt="ppt image">
+                                <img src="images/total/2/10.jpg" class="img-responsive center-block" alt="ppt image">
                             </div>
                             <div class="myBox_4">
-                                <p class="text-center">我是ppt的主题</p>
+                                <p class="text-center">编程艺术</p>
                             </div>
                         </div>
                         <div class="col-xs-2">
                             <div>
-                                <img src="images/user/4.jpg" class="img-responsive center-block" alt="ppt image">
+                                <img src="images/total/2/11.jpg" class="img-responsive center-block" alt="ppt image">
                             </div>
                             <div class="myBox_4">
-                                <p class="text-center">我是ppt的主题</p>
+                                <p class="text-center">信息网络技术</p>
                             </div>
                         </div>
                         <div class="col-xs-2">
                             <div>
-                                <img src="images/user/4.jpg" class="img-responsive center-block" alt="ppt image">
+                                <img src="images/total/2/12.jpg" class="img-responsive center-block" alt="ppt image">
                             </div>
                             <div class="myBox_4">
-                                <p class="text-center">我是ppt的主题</p>
+                                <p class="text-center">自我塑造</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="item">
-                <div class="container-fluid myBox_3">
+                <div class="container-fluid  myBox_3">
                     <div class="row">
                         <div class="col-xs-2">
                             <div>
-                                <img src="images/user/4.jpg" class="img-responsive center-block" alt="ppt image">
+                                <img src="images/total/2/1.png" class="img-responsive center-block" alt="ppt image">
                             </div>
                             <div class="myBox_4">
-                                <p class="text-center">我是ppt的主题</p>
+                                <p class="text-center">机器人的历史</p>
                             </div>
                         </div>
                         <div class="col-xs-2">
                             <div>
-                                <img src="images/user/4.jpg" class="img-responsive center-block" alt="ppt image">
+                                <img src="images/total/2/2.jpg" class="img-responsive center-block" alt="ppt image">
                             </div>
                             <div class="myBox_4">
-                                <p class="text-center">我是ppt的主题</p>
+                                <p class="text-center">化学医疗</p>
                             </div>
                         </div>
                         <div class="col-xs-2">
                             <div>
-                                <img src="images/user/4.jpg" class="img-responsive center-block" alt="ppt image">
+                                <img src="images/total/2/3.jpg" class="img-responsive center-block" alt="ppt image">
                             </div>
                             <div class="myBox_4">
-                                <p class="text-center">我是ppt的主题</p>
+                                <p class="text-center">微积分应用</p>
                             </div>
                         </div>
                         <div class="col-xs-2">
                             <div>
-                                <img src="images/user/4.jpg" class="img-responsive center-block" alt="ppt image">
+                                <img src="images/total/2/4.png" class="img-responsive center-block" alt="ppt image">
                             </div>
                             <div class="myBox_4">
-                                <p class="text-center">我是ppt的主题</p>
+                                <p class="text-center">中国工艺美术史</p>
                             </div>
                         </div>
                         <div class="col-xs-2">
                             <div>
-                                <img src="images/user/4.jpg" class="img-responsive center-block" alt="ppt image">
+                                <img src="images/total/2/5.jpg" class="img-responsive center-block" alt="ppt image">
                             </div>
                             <div class="myBox_4">
-                                <p class="text-center">我是ppt的主题</p>
+                                <p class="text-center">甲骨文的演化</p>
                             </div>
                         </div>
                         <div class="col-xs-2">
                             <div>
-                                <img src="images/user/4.jpg" class="img-responsive center-block" alt="ppt image">
+                                <img src="images/total/2/6.jpg" class="img-responsive center-block" alt="ppt image">
                             </div>
                             <div class="myBox_4">
-                                <p class="text-center">我是ppt的主题</p>
+                                <p class="text-center">生物科技</p>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-xs-2">
                             <div>
-                                <img src="images/user/4.jpg" class="img-responsive center-block" alt="ppt image">
+                                <img src="images/ppt/7.jpg" class="img-responsive center-block" alt="ppt image">
                             </div>
                             <div class="myBox_4">
-                                <p class="text-center">我是ppt的主题</p>
+                                <p class="text-center">小米2手机发布</p>
                             </div>
                         </div>
                         <div class="col-xs-2">
                             <div>
-                                <img src="images/user/4.jpg" class="img-responsive center-block" alt="ppt image">
+                                <img src="images/total/2/8.jpg" class="img-responsive center-block" alt="ppt image">
                             </div>
                             <div class="myBox_4">
-                                <p class="text-center">我是ppt的主题</p>
+                                <p class="text-center">概率论与数理统计</p>
                             </div>
                         </div>
                         <div class="col-xs-2">
                             <div>
-                                <img src="images/user/4.jpg" class="img-responsive center-block" alt="ppt image">
+                                <img src="images/total/2/9.jpg" class="img-responsive center-block" alt="ppt image">
                             </div>
                             <div class="myBox_4">
-                                <p class="text-center">我是ppt的主题</p>
+                                <p class="text-center">社交网络研究</p>
                             </div>
                         </div>
                         <div class="col-xs-2">
                             <div>
-                                <img src="images/user/4.jpg" class="img-responsive center-block" alt="ppt image">
+                                <img src="images/total/2/10.jpg" class="img-responsive center-block" alt="ppt image">
                             </div>
                             <div class="myBox_4">
-                                <p class="text-center">我是ppt的主题</p>
+                                <p class="text-center">编程艺术</p>
                             </div>
                         </div>
                         <div class="col-xs-2">
                             <div>
-                                <img src="images/user/4.jpg" class="img-responsive center-block" alt="ppt image">
+                                <img src="images/total/2/11.jpg" class="img-responsive center-block" alt="ppt image">
                             </div>
                             <div class="myBox_4">
-                                <p class="text-center">我是ppt的主题</p>
+                                <p class="text-center">信息网络技术</p>
                             </div>
                         </div>
                         <div class="col-xs-2">
                             <div>
-                                <img src="images/user/4.jpg" class="img-responsive center-block" alt="ppt image">
+                                <img src="images/total/2/12.jpg" class="img-responsive center-block" alt="ppt image">
                             </div>
                             <div class="myBox_4">
-                                <p class="text-center">我是ppt的主题</p>
+                                <p class="text-center">自我塑造</p>
                             </div>
                         </div>
                     </div>
@@ -411,7 +512,7 @@
                 <h3 class="myH1">我上传的PPT</h3>
             </div>
             <div class="col-md-2 myBox_5">
-                <a class="btn btn-info myBut_2 " href="#" role="button">查看全部</a>
+                <a class="btn btn-info myBut_2" href="#" role="button">查看全部</a>
             </div>
         </div>
     </div>
@@ -430,104 +531,104 @@
                     <div class="row">
                         <div class="col-md-2">
                             <div>
-                                <img src="images/user/4.jpg" class="img-responsive center-block" alt="ppt image">
+                                <img src="images/total/2/13.jpg" class="img-responsive center-block" alt="ppt image">
                             </div>
                             <div class="myBox_4">
-                                <p class="text-center">我是ppt的主题</p>
+                                <p class="text-center">思维与大脑</p>
                             </div>
                         </div>
                         <div class="col-md-2">
                             <div>
-                                <img src="images/user/4.jpg" class="img-responsive center-block" alt="ppt image">
+                                <img src="images/total/2/14.png" class="img-responsive center-block" alt="ppt image">
                             </div>
                             <div class="myBox_4">
-                                <p class="text-center">我是ppt的主题</p>
+                                <p class="text-center">大脑是怎样思考的</p>
                             </div>
                         </div>
                         <div class="col-md-2">
                             <div>
-                                <img src="images/user/4.jpg" class="img-responsive center-block" alt="ppt image">
+                                <img src="images/total/2/15.png" class="img-responsive center-block" alt="ppt image">
                             </div>
                             <div class="myBox_4">
-                                <p class="text-center">我是ppt的主题</p>
+                                <p class="text-center">线性代数</p>
                             </div>
                         </div>
                         <div class="col-md-2">
                             <div>
-                                <img src="images/user/4.jpg" class="img-responsive center-block" alt="ppt image">
+                                <img src="images/total/2/20.png"" class="img-responsive center-block" alt="ppt image">
                             </div>
                             <div class="myBox_4">
-                                <p class="text-center">我是ppt的主题</p>
+                                <p class="text-center">名人演讲</p>
                             </div>
                         </div>
                         <div class="col-md-2">
                             <div>
-                                <img src="images/user/4.jpg" class="img-responsive center-block" alt="ppt image">
+                                <img src="images/total/2/21.jpg" class="img-responsive center-block" alt="ppt image">
                             </div>
                             <div class="myBox_4">
-                                <p class="text-center">我是ppt的主题</p>
+                                <p class="text-center">名人演讲</p>
                             </div>
                         </div>
                         <div class="col-md-2">
                             <div>
-                                <img src="images/user/4.jpg" class="img-responsive center-block" alt="ppt image">
+                                <img src="images/total/2/22.png" class="img-responsive center-block" alt="ppt image">
                             </div>
                             <div class="myBox_4">
-                                <p class="text-center">我是ppt的主题</p>
+                                <p class="text-center">名人演讲</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="item">
-                <div class="container-fluid myBox_3">
+                <div class="container-fluid  myBox_3">
                     <div class="row">
                         <div class="col-md-2">
                             <div>
-                                <img src="images/user/4.jpg" class="img-responsive center-block" alt="ppt image">
+                                <img src="images/total/2/13.jpg" class="img-responsive center-block" alt="ppt image">
                             </div>
                             <div class="myBox_4">
-                                <p class="text-center">我是ppt的主题</p>
+                                <p class="text-center">思维与大脑</p>
                             </div>
                         </div>
                         <div class="col-md-2">
                             <div>
-                                <img src="images/user/4.jpg" class="img-responsive center-block" alt="ppt image">
+                                <img src="images/total/2/14.png" class="img-responsive center-block" alt="ppt image">
                             </div>
                             <div class="myBox_4">
-                                <p class="text-center">我是ppt的主题</p>
+                                <p class="text-center">大脑是怎样思考的</p>
                             </div>
                         </div>
                         <div class="col-md-2">
                             <div>
-                                <img src="images/user/4.jpg" class="img-responsive center-block" alt="ppt image">
+                                <img src="images/total/2/15.png" class="img-responsive center-block" alt="ppt image">
                             </div>
                             <div class="myBox_4">
-                                <p class="text-center">我是ppt的主题</p>
+                                <p class="text-center">线性代数</p>
                             </div>
                         </div>
                         <div class="col-md-2">
                             <div>
-                                <img src="images/user/4.jpg" class="img-responsive center-block" alt="ppt image">
+                                <img src="images/total/2/20.png"" class="img-responsive center-block" alt="ppt image">
                             </div>
                             <div class="myBox_4">
-                                <p class="text-center">我是ppt的主题</p>
+                                <p class="text-center">名人演讲</p>
                             </div>
                         </div>
                         <div class="col-md-2">
                             <div>
-                                <img src="images/user/4.jpg" class="img-responsive center-block" alt="ppt image">
+                                <img src="images/total/2/21.jpg" class="img-responsive center-block" alt="ppt image">
                             </div>
                             <div class="myBox_4">
-                                <p class="text-center">我是ppt的主题</p>
+                                <p class="text-center">名人演讲</p>
                             </div>
                         </div>
                         <div class="col-md-2">
                             <div>
-                                <img src="images/user/4.jpg" class="img-responsive center-block" alt="ppt image">
+                                <img src="images/ppt/7.jpg" class="img-responsive center-block" alt="ppt image">
                             </div>
                             <div class="myBox_4">
-                                <p class="text-center">我是ppt的主题</p>
+                                <p class="text-center">小米手机发布会</p>
                             </div>
                         </div>
                     </div>

@@ -11,7 +11,7 @@ body {
     font-size: 200%;
     color: white;
 }
-#land,#register {
+#land,#register,#logout {
     color: white;
 }
 .banner {
