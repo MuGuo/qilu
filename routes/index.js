@@ -7,7 +7,7 @@ var fs = require('fs');
 var multer  = require('multer');
 var upload = multer({ dest: 'public/ppt' });
 var AVATAR_UPLOAD_FOLDER = '/ppt/';
-var num = 0;    //ÎÄ¼şid
+var num = 0;    //æ–‡ä»¶id
 var check = 1;
 
 
@@ -41,11 +41,11 @@ router.get('/look:num', function(req, res, next) {
 });
 
 router.post('/upload', function(req, res, next) {
-  var form = new formidable.IncomingForm();   //´´½¨ÉÏ´«±íµ¥
-  form.encoding = 'utf-8';        //ÉèÖÃ±à¼­
-  form.uploadDir = 'public' + AVATAR_UPLOAD_FOLDER;     //ÉèÖÃÉÏ´«Ä¿Â¼
-  form.keepExtensions = true;     //±£Áôºó×º
-  form.maxFieldsSize = 100 * 1024 * 1024;   //ÎÄ¼ş´óĞ¡
+  var form = new formidable.IncomingForm();   //åˆ›å»ºä¸Šä¼ è¡¨å•
+  form.encoding = 'utf-8';        //è®¾ç½®ç¼–è¾‘
+  form.uploadDir = 'public' + AVATAR_UPLOAD_FOLDER;     //è®¾ç½®ä¸Šä¼ ç›®å½•
+  form.keepExtensions = true;     //ä¿ç•™åç¼€
+  form.maxFieldsSize = 100 * 1024 * 1024;   //æ–‡ä»¶å¤§å°
   form.parse(req, function(err, fields, files) {
 
     if (err) {
@@ -54,7 +54,7 @@ router.post('/upload', function(req, res, next) {
       return;
     }
 
-    var extName = '';  //ºó×ºÃû
+    var extName = '';  //åç¼€å
     console.log(files.file.type);
     switch (files.file.type) {
       case 'application/vnd.ms-powerpoint':
@@ -65,7 +65,7 @@ router.post('/upload', function(req, res, next) {
         break;
     }
     if(extName.length == 0){
-      res.locals.error = 'Ö»Ö§³Öppt»òpptx¸ñÊ½ÎÄ¼ş';
+      res.locals.error = 'åªæ”¯æŒpptæˆ–pptxæ ¼å¼æ–‡ä»¶';
       res.json({
         message: 'failure'
       });
@@ -93,7 +93,7 @@ router.post('/upload', function(req, res, next) {
               console.log(err);
               return;
             }
-          });  //ÖØÃüÃû
+          });  //é‡å‘½å
           if(num >= 10000){
             num = 0;
           }
@@ -119,7 +119,7 @@ router.post('/upload', function(req, res, next) {
           console.log(err);
           return;
         }
-      });  //ÖØÃüÃû
+      });  //é‡å‘½å
 
       if(num >= 10000){
         num = 0;
