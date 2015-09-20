@@ -14,7 +14,7 @@
     "tests"
   ],
   "dependencies": {
-    "jquery": "~1.11.1",
+    "jquery": "~1.11.3",
     "bootstrap": "~3.3.5",
     "vue": "~0.12.15"
   }
