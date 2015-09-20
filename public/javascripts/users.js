@@ -39,10 +39,10 @@
     var vInfo = new Vue({
         el: "#v-info",
         data: {
-            name: 'Seal',
-            gender: '男',
-            date: new Date(),
-            hobby: '苹果和巧克力',
+            name: ' ',
+            gender: ' ',
+            date: ' ',
+            hobby: ' ',
             introduction: '爱PPT爱吐槽，就来有弹幕·PPT资源共享平台~'
         },
         methods: {

@@ -1,7 +1,7 @@
 /**
  * Created by Guo on 2015/9/19.
  */
-(function(){
+
     var danmu = $('#danmu');
     //初始化
     danmu.danmu({});
@@ -78,12 +78,16 @@
 
     //调隐藏 显示
     function changehide() {
-        var op = document.getElementById('op').value;
-        op = op / 100;
-        if (document.getElementById("ishide").checked) {
+        //var op = document.getElementById('op').value;
+        //op = op / 100;
+        var isShow = $('#is-show');
+
+        if (isShow.hasClass('active')) {
             $("#danmu").danmu("setOpacity",1)
+            isShow.removeClass('active');
         } else {
             $("#danmu").danmu("setOpacity",0)
+            isShow.addClass('active');
 
         }
     }
@@ -232,4 +236,4 @@
         // Initial/first page rendering
         renderPage(pageNum);
     });
-})();
+
