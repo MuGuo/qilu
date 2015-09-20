@@ -50,6 +50,24 @@ router.post('/land', function(req, res) {
     });
 });
 
+// 评论
+var comments = [{
+    user: '',
+    content: '啦啦啦啦啦啦',
+    time: 0, // for danmu,
+    datetime: new Date()
+}];
+router
+    .route('/comments')
+    .get(function(req, res){
+        res.json(comments);
+    })
+    .post(function(req, res){
+        comments.push(req.body);
+        res.end();
+    });
+
+
 router.post('/register', function(req, res) {
     console.log(req.body.email);
     console.log(req.body.password);
