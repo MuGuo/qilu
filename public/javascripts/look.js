@@ -93,6 +93,7 @@
     }
     //设置弹幕时间
     function settime(){
+
         var t=document.getElementById("set_time").value;
         t=parseInt(t)
         $('#danmu').danmu("setTime",t);
