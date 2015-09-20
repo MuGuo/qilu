@@ -34,7 +34,12 @@
     }
 
     //发送弹幕，使用了文档README.md第7节中推荐的方法
-    $('#send').click(function(){
+    $('#sendForm').submit(function(e){
+        e.preventDefault();
+        send();
+    });
+
+    function send() {
         var text = document.getElementById('text').value;
         var color = document.getElementById('color').value;
         var position = document.getElementById('position').value;
@@ -57,14 +62,14 @@
         };
         $.post('/comments', comment).then(function(){
             vComments.comments.push(comment);
-            $('#v-comments').animate({scrollTop: $('#v-comments').height()}, 300);
+            $('#v-comments').animate({scrollTop: $('#v-comments')[0].scrollHeight}, 300);
         }, function(){
             alert('评论失败');
         });
         danmu.danmu("addDanmu", text_obj);
         resumer();
         document.getElementById('text').value='';
-    });
+    }
     //调整透明度函数
     function op(){
         var op=document.getElementById('op').value;
@@ -102,6 +107,7 @@
                     receivedComments.forEach(function(comment){
                         vComments.comments.push(comment);
                     });
+                    $('#v-comments').animate({scrollTop: $('#v-comments')[0].scrollHeight}, 300);
                 }, function(){
 
                 });
