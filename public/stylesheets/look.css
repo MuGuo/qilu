@@ -68,6 +68,8 @@ div.comment {
     padding-top: 20px;
     padding-bottom: 20px;
     background-color: lightskyblue;
+    height: 600px;
+    overflow: scroll;
 }
 
 div.comment .media {
@@ -113,3 +115,5 @@ div.page-control a:active {
     color: mediumblue;
     text-decoration: none;
 }
+
+

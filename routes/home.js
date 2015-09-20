@@ -51,12 +51,20 @@ router.post('/land', function(req, res) {
 });
 
 // 评论
-var comments = [{
-    user: '',
-    content: '啦啦啦啦啦啦',
-    time: 0, // for danmu,
-    datetime: new Date()
-}];
+var comments = [
+    {
+        user: '',
+        content: '啦啦啦啦啦啦',
+        time: 0, // for danmu,
+        datetime: new Date()
+    },
+    {
+        user: '',
+        content: '小编还不错嘛',
+        time: 0,
+        datetime: new Date()
+    }
+];
 router
     .route('/comments')
     .get(function(req, res){

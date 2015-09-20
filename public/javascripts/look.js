@@ -49,6 +49,18 @@
             time: time
         };
 
+        var comment = {
+            content: text,
+            time: time,
+            datetime: new Date(),
+            user: ''
+        };
+        $.post('/comments', comment).then(function(){
+            vComments.comments.push(comment);
+            $('#v-comments').animate({scrollTop: $('#v-comments').height()}, 300);
+        }, function(){
+            alert('评论失败');
+        });
         danmu.danmu("addDanmu", text_obj);
         resumer();
         document.getElementById('text').value='';
@@ -80,6 +92,27 @@
 
 
     // 评论部分
+    var vComments = new Vue({
+        el: "#v-comments",
+        ready: function(){
+            $
+                .get('/comments')
+                .then(function(receivedComments){
+                    vComments.comments.splice(0);
+                    receivedComments.forEach(function(comment){
+                        vComments.comments.push(comment);
+                    });
+                }, function(){
+
+                });
+        },
+        data: {
+            comments: []
+        },
+        methods: {
+
+        }
+    });
 
     // 阅读器部分
     //

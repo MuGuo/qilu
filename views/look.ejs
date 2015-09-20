@@ -224,8 +224,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 comment">
-                <div class="media">
+            <div class="col-md-4 comment" id="v-comments">
+                <div class="media" v-repeat="comments">
                     <div class="media-left">
                         <a href="">
                             <img src="images/user/amy.jpg" width="64" height="64" alt="" class="img-circle"/>
@@ -233,56 +233,24 @@
                     </div>
                     <div class="media-body">
                         <div class="arrow"></div>
-                        <p style="color: white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur autem beatae, consequatur deleniti distinctio eveniet exercitationem impedit iste maiores molestias praesentium quas quia quod recusandae sed, suscipit ullam? Animi, voluptatem.</p>
+                        <p style="color: white">{{content}}</p>
                     </div>
-                </div>
-                <div class="media">
-                    <div class="media-left">
-                        <a href="">
-                            <img src="images/user/amy.jpg" width="64" height="64" alt="" class="img-circle"/>
-                        </a>
-                    </div>
-                    <div class="media-body">
-                        <div class="arrow"></div>
-                        <p style="color: white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt, voluptate.</p>
-                    </div>
-                </div>
-                <div class="media">
-                    <div class="media-left">
-                        <a href="">
-                            <img src="images/user/amy.jpg" width="64" height="64" alt="" class="img-circle"/>
-                        </a>
-                    </div>
-                    <div class="media-body">
-                        <div class="arrow"></div>
-                        <p style="color: white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt, voluptate.</p>
-                    </div>
-                </div>
-                <div class="media">
-                    <div class="media-left">
-                        <a href="">
-                            <img src="images/user/amy.jpg" width="64" height="64" alt="" class="img-circle"/>
-                        </a>
-                    </div>
-                    <div class="media-body">
-                        <div class="arrow"></div>
-                        <p style="color: white">Lorem ipsum dolor sit amet,  voluptate.</p>
-                    </div>
-                </div>
-                <div class="page-control text-center">
-                    <a href="">
-                        <span class="glyphicon glyphicon-triangle-left"></span>
-                    </a>
-                    <a href="">
-                        <span class="glyphicon glyphicon-triangle-right"></span>
-                    </a>
                 </div>
             </div>
+            <!--<div class="page-control text-center">-->
+                <!--<a href="">-->
+                    <!--<span class="glyphicon glyphicon-triangle-left"></span>-->
+                <!--</a>-->
+                <!--<a href="">-->
+                    <!--<span class="glyphicon glyphicon-triangle-right"></span>-->
+                <!--</a>-->
+            <!--</div>-->
         </div>
     </div>
 <script src="bower_components/jquery/dist/jquery.min.js"></script>
 <script src="javascripts/jquery.danmu.js"></script>
 <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="bower_components/vue/dist/vue.min.js"></script>
 <script src="javascripts/myHome.js"></script>
 <script src="javascripts/pdf.js"></script>
 <script src="javascripts/look.js"></script>
