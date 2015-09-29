@@ -7,14 +7,14 @@ var router = express.Router();
 
 
 var mysql      = require('mysql');
-var connection = mysql.createConnection({
+var connection = mysql.createPool({
     host     : '211.87.226.168',
     user     : 'qilu',
     password : '..xiao',
     database : 'qilu'
 });
 
-connection.connect();
+//connection.connect();
 
 router.get('/', function(req, res, next) {
     console.log(req.cookies)
